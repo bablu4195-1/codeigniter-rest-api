@@ -40,7 +40,6 @@ class Employee extends ResourceController
     }
     public function update($id = null) {
         $model = new EmployeeModel();
-        $id = $this->request->getVar('id');
         $data = [
             'name' => $this->request->getVar('name'),
             'email' => $this->request->getVar('email')
@@ -53,7 +52,7 @@ class Employee extends ResourceController
                 'success' => 'Employee updated successfully'
             ]
         ];
-        return $this->respond($response);
+        return $this->respondCreated($response);
     }
     public function delete($id = null) {
         $model = new EmployeeModel();
